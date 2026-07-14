@@ -1,0 +1,42 @@
+[package]
+name = "databend-sqlsmith"
+version = "0.1.0"
+authors = ["Databend Authors <opensource@datafuselabs.com>"]
+license = "Apache-2.0"
+publish = false
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.4.2", features = ["derive"] }
+cookie = "0.18.1"
+databend-common-ast = "0.2.5"
+derive-visitor = { version = "0.4.0", features = ["std-types-drive"] }
+ethnum = { version = "1.5.2", features = ["serde", "macros"] }
+itertools = "0.15.0"
+jiff = { version = "0.2.16", features = ["serde", "tzdb-bundle-always"] }
+jsonb = "0.5.6"
+rand = { version = "0.8.7", features = ["small_rng", "serde1"] }
+reqwest = { version = "0.12", default-features = false, features = [
+    "json",
+    "http2",
+    "native-tls-vendored",
+    "native-tls-alpn",
+    "cookies",
+] }
+serde = { version = "1.0.164", features = ["derive", "rc"] }
+serde_json = { version = "1.0.85", default-features = false, features = [
+    "preserve_order",
+    "unbounded_depth",
+] }
+tokio = { version = "1.52.3", features = ["full"] }
+tracing = "0.1.40"
+tracing-subscriber = { version = "0.3.17", features = [
+    "env-filter",
+    "json",
+    "valuable",
+] }
+url = "2.5.4"
+
+[[bin]]
+name = "databend-sqlsmith"
+path = "src/bin/main.rs"
